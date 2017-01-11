@@ -125,23 +125,11 @@ def get_ng( ng_type, n_hex, g_hex ):
 
 
 def bytes_to_long(s):
-    n = ord(s[0])
-    for b in ( ord(x) for x in s[1:] ):
-        n = (n << 8) | b
-    return n
+    return unicode(s)
 
 
 def long_to_bytes(n):
-    l = list()
-    x = 0
-    off = 0
-    while x != n:
-        b = (n >> off) & 0xFF
-        l.append( chr(b) )
-        x = x | (b << off)
-        off += 8
-    l.reverse()
-    return ''.join(l)
+    return unicode(n)
 
 
 def get_random( nbytes ):
